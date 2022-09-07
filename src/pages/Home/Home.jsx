@@ -1,6 +1,10 @@
+import "./Home.scss";
+import Form from "../../components/Form/Form"
 const Home = () => {
     return (
-        <h1>hello world</h1>
+        <div className="home">
+            <Form />
+        </div>
     )
 }
 
