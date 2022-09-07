@@ -13,15 +13,15 @@ const NavMenu = props => {
     <div className="nav-menu">
       <div className="nav-menu__content">
         <img src={blackCross} alt="Close menu" className="nav-menu__cross" onClick={toggleNav} />
-        <Link to="/" className="nav-menu__item" onClick={toggleNav}>
+        <Link to="/home" className="nav-menu__item" onClick={toggleNav}>
           Home
         </Link>
 
-        <Link to="/" className="nav-menu__item" onClick={toggleNav}>
+        <Link to="/gallery" className="nav-menu__item" onClick={toggleNav}>
           Studio Gallery
         </Link>
 
-        <Link to="/" className="nav-menu__item" onClick={toggleNav}>
+        <Link to="/usergallery" className="nav-menu__item" onClick={toggleNav}>
           Public Gallery
         </Link>
       </div>
