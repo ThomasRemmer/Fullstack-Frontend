@@ -1,0 +1,12 @@
+@use "./assets/sass/_variables.scss" as *;
+
+.app {
+  color: #000000;
+}
+
+@media screen and (min-width: 992px) {
+  .app {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+}
