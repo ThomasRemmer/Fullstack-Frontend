@@ -4,10 +4,11 @@ const Form = () => {
   const [name, setName] = useState("");
   const [faction, setFaction] = useState("");
   const [text, setText] = useState("");
+  const [result, setResult] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    const image = {name, faction,text}
+    const image = {name, faction,text,result}
     console.log(image)
     fetch("http://localhost:8080/images" , {
         method:"POST",
@@ -20,13 +21,13 @@ const Form = () => {
   return (
     <div className="UserForm">
       <form onSubmit={handleSubmit}>
-        <label>Name</label>
+        <label>Opponent's Name</label>
         <input
           type="text"
           value={name}
           onChange={(e) => setName(e.target.value)}
         />
-        <label >Faction</label>
+        <label >Opponent's Faction</label>
         <select
           value={faction}
           onChange={(e) => setFaction(e.target.value)}
@@ -38,7 +39,17 @@ const Form = () => {
           <option value="Tau">Tau</option>
           <option value="Tyranids">Tyranids</option>
         </select>
-        <label>Description</label>
+        <label >Result</label>
+        <select
+          value={result}
+          onChange={(e) => setResult(e.target.value)}
+        >
+            <option value="">Select an Option</option>
+          <option value="Win">Win</option>
+          <option value="Loss">Loss</option>
+
+        </select>
+        <label>Notes</label>
         <input
           type="text"
           value={text}

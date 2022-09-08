@@ -25,7 +25,7 @@ const Nav = props => {
       {showNav && <NavMenu toggleNav={toggleNav} />}
 
       <img src={menu} className="nav__item nav__item--menu" alt="menu icon" onClick={toggleNav} />
-      <h2 className="nav__heading">3d Artificery</h2>
+      <h2 className="nav__heading">Game Tracker</h2>
       <img src={settings} className="nav__item" alt="settings icon" onClick={toggleSettings} />
     </nav>
   );
