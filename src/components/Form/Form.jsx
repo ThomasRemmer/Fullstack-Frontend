@@ -1,62 +1,75 @@
 import "./Form.scss";
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { UserContext } from "../../context/UserContext";
 const Form = () => {
   const [name, setName] = useState("");
-  const [faction, setFaction] = useState("");
+  const [date, setDate] = useState("");
+  const [end, setA] = useState("")
   const [text, setText] = useState("");
-  const [result, setResult] = useState("");
+  const [photo, setPhoto] = useState("");
+  const {value, setValue} = useContext(UserContext)
 
   const handleSubmit = (e) => {
-    e.preventDefault()
-    const image = {name, faction,text,result}
+    if(value == true) {
+      e.preventDefault()
+    const image = {name, date,text,photo,end}
     console.log(image)
     fetch("http://localhost:8080/images" , {
         method:"POST",
         headers:{"Content-Type":"application/json"},
         body:JSON.stringify(image)
     })
-    
+    alert("Submitted results")
+    } else {
+      alert("you are not logged in")
+    }
   };
 
   return (
-    <div className="UserForm">
-      <form onSubmit={handleSubmit}>
-        <label>Opponent's Name</label>
+    <div >
+      <form onSubmit={handleSubmit } className="UserForm">
+        <label className="UserForm--Item">Holiday Location</label>
         <input
+        className="UserForm--Item UserForm--Item__Input"
           type="text"
           value={name}
           onChange={(e) => setName(e.target.value)}
         />
-        <label >Opponent's Faction</label>
-        <select
-          value={faction}
-          onChange={(e) => setFaction(e.target.value)}
-        >
-            <option value="">Select an Option</option>
-          <option value="Adepta Sororitas">Adepta Sororitas</option>
-          <option value="Adeptus Astarties">Adeptus Astarties</option>
-          <option value="Adeptus Mechanicus">Adeptus Mechanicus</option>
-          <option value="Tau">Tau</option>
-          <option value="Tyranids">Tyranids</option>
-        </select>
-        <label >Result</label>
-        <select
-          value={result}
-          onChange={(e) => setResult(e.target.value)}
-        >
-            <option value="">Select an Option</option>
-          <option value="Win">Win</option>
-          <option value="Loss">Loss</option>
-
-        </select>
-        <label>Notes</label>
+        <label className="UserForm--Item">Holiday Start Date</label>
         <input
-          type="text"
+          type="date"
+          className="UserForm--Item UserForm--Item__Input"
+          value={date}
+          onChange={(e) => setDate(e.target.value)}
+        />
+
+<label className="UserForm--Item">Holiday End Date</label>
+        <input
+          type="date"
+          className="UserForm--Item UserForm--Item__Input"
+          value={end}
+          onChange={(e) => setA(e.target.value)}
+        />
+
+  
+
+        <label className="UserForm--Item" >Notes</label>
+        <textarea
+          rows="8"
+         className="UserForm--Item UserForm--Item__Input"
           value={text}
           onChange={(e) => setText(e.target.value)}
         />
+ 
+        <label className="UserForm--Item">Image</label>
+        <input
+         className="UserForm--Item UserForm--Item__Input"
+          type="text"
+          value={photo}
+          onChange={(e) => setPhoto(e.target.value)}
+        />
 
-        <button>
+        <button className="UserForm--Item UserForm--Item__Input">
           Submit
         </button>
       </form>

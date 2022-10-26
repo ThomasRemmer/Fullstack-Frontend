@@ -1,16 +1,17 @@
 import Card from "../../components/Card/Card"
-const CardContainer = ({games}) =>{
+const CardContainer = ({holidays}) =>{
     
     return(
         <div>
-        {games.map((game) => (
+        {holidays.map((holiday) => (
         <Card
-          key={game.id}
-          id={game.id}
-          name={game.name}
-          faction={game.faction}
-          result={game.result}
-          notes={game.text}
+          key={holiday.id}
+          id={holiday.id}
+          name={holiday.name}
+          date={holiday.date}
+          text={holiday.text}
+          photo={holiday.photo}
+          endDate={holiday.endDate}
         />
       ))}
         </div>

@@ -1,8 +1,13 @@
 @use "./assets/sass/_variables.scss" as *;
 
-.app {
-  color: #000000;
+* {
+  color: #d8d8d8;
+  background-color: #1a1a1a;
+  
+  
 }
+
+
 
 @media screen and (min-width: 992px) {
   .app {

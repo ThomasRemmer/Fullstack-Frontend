@@ -1,32 +1,47 @@
 import FilterContiner from "../../containers/FIlterContainer/FilterContainer"
 import CardContainer from "../../containers/CardContainer/CardContainer"
+import "./Gallery.scss"
 
 import { useState, useEffect } from "react";
 
 const Gallery = () => {
-    const [games,setGames] = useState([])
+    const [holiday,setHoliday] = useState([])
+    const [name, setName] = useState("")
+    const [status, setStatus] = useState("")
 
-    const getGames = async () => {
-      const url = "http://localhost:8080/images"
+    const getHoliday = async () => {
+      let query = `?${name}&${status}`;
+     const url = `http://localhost:8080/images${query}`
       const res = await fetch(url)
       const data = await res.json()
-      setGames(data)
+      setHoliday(data)
   
     }
 
-    getGames()
+    useEffect(() => {
+        getHoliday(name, status)
+    },[name,status])
 
+    const handleName = name => {
+        if (name !=="") {
+            setName(`name=${name}`)
+        } else {
+            setName("")
+        }
 
+    }
 
     return (
         <>
-        <h1>View Games</h1>
+        <div className="Gallery">
+        <h1>Holidays</h1>
         <nav>
-            <FilterContiner />
+            <FilterContiner checkName={handleName} />
         </nav>
         <main>
-            <CardContainer games={games}/>
+            <CardContainer holidays={holiday}/>
         </main>
+        </div>
         </>
     )
 }

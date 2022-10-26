@@ -1,8 +1,11 @@
-.UserForm {
+.LoginForm {
     display: flex;
     flex-direction: column;
+    
+        padding: 0 50px;
+      
 }
-.UserForm--Item {
+.LoginForm--Item {
     margin-bottom: 10px;
     border: 0;
     

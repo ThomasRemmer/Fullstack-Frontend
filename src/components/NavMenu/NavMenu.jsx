@@ -14,11 +14,11 @@ const NavMenu = props => {
       <div className="nav-menu__content">
         <img src={blackCross} alt="Close menu" className="nav-menu__cross" onClick={toggleNav} />
         <Link to="/home" className="nav-menu__item" onClick={toggleNav}>
-          Upload Games
+          Add New Holiday
         </Link>
 
         <Link to="/gallery" className="nav-menu__item" onClick={toggleNav}>
-          View Games
+          View Holidays
         </Link>
 
 
